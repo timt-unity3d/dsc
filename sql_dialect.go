@@ -54,7 +54,7 @@ const sqlLightPkSQL = "pragma table_info(%v);"
 const pgCurrentSchemaSQL = "SELECT current_database() AS name"
 const pgSchemaListSQL = "SELECT datname AS name FROM pg_catalog.pg_database"
 
-const pgTableListSQL = "SELECT table_name AS name FROM  information_schema.tables WHERE table_catalog = ? AND table_schema = 'public' "
+const pgTableListSQL = "SELECT table_name AS name FROM  information_schema.tables WHERE table_catalog = ? AND table_schema = 'public' and table_type != 'VIEW' "
 
 const pgPrimaryKeySQL = `SELECT c.column_name AS name FROM information_schema.key_column_usage u
 JOIN information_schema.columns c ON u.column_name = c.column_name AND u.table_name = c.table_name AND u.constraint_catalog = c.table_catalog  
